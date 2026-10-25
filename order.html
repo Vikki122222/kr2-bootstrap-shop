@@ -1,147 +1,662 @@
 <!DOCTYPE html>
-<html lang="ru">
+
+<!-- Язык страницы и тёмная тема Bootstrap. -->
+<html lang="ru" data-bs-theme="dark">
 <head>
+    <!-- Кодировка и адаптивный масштаб страницы. -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Заявка — Bootstrap Shop</title>
 
-    <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-            rel="stylesheet"
+    <meta
+            name="description"
+            content="Выбери котика в магазине Plush Cats и заполни учебную форму заявки."
     >
+
+    <title>Заявка — Plush Cats</title>
+
+    <!-- Локальный Bootstrap и собственные стили поверх него. -->
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/custom.css">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-        <a class="navbar-brand" href="index.html">Bootstrap Shop</a>
 
-        <button
-                class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#mainNavbar"
-                aria-controls="mainNavbar"
-                aria-expanded="false"
-                aria-label="Переключить навигацию"
-        >
-            <span class="navbar-toggler-icon"></span>
-        </button>
+<!-- Быстрый переход к содержимому с клавиатуры. -->
+<a
+        class="visually-hidden-focusable position-absolute top-0 start-0 p-3 bg-dark text-white z-3"
+        href="#main-content"
+>
+    Перейти к основному содержимому
+</a>
 
-        <div class="collapse navbar-collapse" id="mainNavbar">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html">Главная</a>
-                </li>
+<!-- Общая шапка сайта. -->
+<header class="site-header">
+    <nav class="navbar navbar-expand-lg py-3" aria-label="Основная навигация">
+        <div class="container">
+            <a
+                    class="navbar-brand site-brand fs-4"
+                    href="index.html"
+                    lang="en"
+            >
+                Plush Cats
+            </a>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="catalog.html">Каталог</a>
-                </li>
+            <!-- Кнопка раскрывает меню на небольших экранах. -->
+            <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#mainNavbar"
+                    aria-controls="mainNavbar"
+                    aria-expanded="false"
+                    aria-label="Открыть или закрыть меню"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="product.html">Товар</a>
-                </li>
+            <div class="collapse navbar-collapse" id="mainNavbar">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            Главная
+                        </a>
+                    </li>
 
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="order.html">Заявка</a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="catalog.html">
+                            Каталог
+                        </a>
+                    </li>
 
-                <li class="nav-item dropdown">
-                    <a
-                            class="nav-link dropdown-toggle"
-                            href="#"
-                            role="button"
-                            data-bs-toggle="dropdown"
-                            aria-expanded="false"
-                    >
-                        Дополнительно
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="catalog.html">Все товары</a></li>
-                        <li><a class="dropdown-item" href="order.html">Оформить заявку</a></li>
-                        <li><a class="dropdown-item" href="index.html#popular">Популярное</a></li>
-                    </ul>
-                </li>
-            </ul>
+                    <li class="nav-item">
+                        <a class="nav-link" href="product.html">
+                            Котик Тедди
+                        </a>
+                    </li>
+
+                    <!-- Выпадающее меню Bootstrap. -->
+                    <li class="nav-item dropdown">
+                        <a
+                                class="nav-link dropdown-toggle"
+                                href="#"
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                        >
+                            Покупателю
+                        </a>
+
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="index.html#popular">
+                                    Наши котики
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="index.html#choose">
+                                    Как выбрать подарок
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="order.html">
+                                    Оставить заявку
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <!-- aria-current обозначает текущую страницу. -->
+                <a
+                        class="btn btn-primary ms-lg-3 mt-3 mt-lg-0"
+                        href="order.html"
+                        aria-current="page"
+                >
+                    Хочу котика
+                </a>
+            </div>
         </div>
+    </nav>
+</header>
+
+<main class="container my-4 my-lg-5" id="main-content">
+
+    <!-- Хлебные крошки показывают путь к форме заявки. -->
+    <nav aria-label="Хлебные крошки">
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item">
+                <a href="index.html">Главная</a>
+            </li>
+
+            <li class="breadcrumb-item">
+                <a href="catalog.html">Каталог</a>
+            </li>
+
+            <li class="breadcrumb-item active" aria-current="page">
+                Заявка
+            </li>
+        </ol>
+    </nav>
+
+    <div class="mb-4">
+        <h1 class="section-heading display-5 mb-3">
+            Твой котик почти выбран
+        </h1>
+
+        <p class="lead text-body-secondary mb-0">
+            Выбери плюшевого друга, укажи количество
+            и заполни контактные данные.
+        </p>
     </div>
-</nav>
 
-<main class="container my-5">
-    <div class="row justify-content-center">
-        <div class="col-12 col-lg-8">
-            <div class="card shadow-sm">
-                <div class="card-header bg-primary text-white">
-                    <h1 class="h4 mb-0">Форма заявки</h1>
-                </div>
+    <!-- Информационное сообщение Bootstrap alert. -->
+    <div class="alert alert-info mb-4">
+        Это учебный магазин. Форма проверяет заполнение
+        и рассчитывает сумму товаров, но не отправляет
+        и не сохраняет данные.
+    </div>
 
-                <div class="card-body">
-                    <div class="alert alert-info" role="alert">
-                        Заполните форму. Поля со звёздочкой являются обязательными.
-                    </div>
+    <!-- От lg форма и сводка стоят рядом, на узком экране — друг под другом. -->
+    <div class="row align-items-start g-4">
 
-                    <form>
-                        <div class="row g-3">
-                            <div class="col-12 col-md-6">
-                                <label for="order-name" class="form-label">Имя *</label>
-                                <input id="order-name" name="name" type="text" class="form-control" required>
+        <div class="col-12 col-lg-7">
+            <section class="feature-box p-4" aria-labelledby="form-title">
+                <h2 class="h4 mb-2" id="form-title">
+                    Данные заявки
+                </h2>
+
+                <p class="small text-body-secondary mb-4">
+                    Поля со звёздочкой обязательны.
+                </p>
+
+                <!-- name задаёт имя поля, required делает его обязательным. -->
+                <form id="order-form">
+                    <div class="row g-3">
+
+                        <!-- Значения option совпадают с ключами товаров в JavaScript. -->
+                        <div class="col-12 col-md-8">
+                            <label class="form-label" for="order-product">
+                                Котик *
+                            </label>
+
+                            <select
+                                    class="form-select"
+                                    id="order-product"
+                                    name="product"
+                                    required
+                            >
+                                <option value="" selected>
+                                    Выбери котика
+                                </option>
+
+                                <option value="teddy">
+                                    Тедди — 1 890 ₽
+                                </option>
+
+                                <option value="gray">
+                                    Дымок — 1 490 ₽
+                                </option>
+
+                                <option value="white">
+                                    Вишенка — 1 790 ₽
+                                </option>
+
+                                <option value="pillow">
+                                    Облачко — 2 190 ₽
+                                </option>
+                            </select>
+                        </div>
+
+                        <!-- Браузер проверяет целое количество от 1 до 10. -->
+                        <div class="col-12 col-md-4">
+                            <label class="form-label" for="order-quantity">
+                                Количество *
+                            </label>
+
+                            <input
+                                    class="form-control"
+                                    id="order-quantity"
+                                    name="quantity"
+                                    type="number"
+                                    min="1"
+                                    max="10"
+                                    step="1"
+                                    value="1"
+                                    aria-describedby="quantity-help"
+                                    required
+                            >
+
+                            <div class="form-text" id="quantity-help">
+                                От 1 до 10 штук.
+                            </div>
+                        </div>
+
+                        <!-- label связан с полем через совпадающие for и id. -->
+                        <div class="col-12 col-md-6">
+                            <label class="form-label" for="order-name">
+                                Имя *
+                            </label>
+
+                            <input
+                                    class="form-control"
+                                    id="order-name"
+                                    name="name"
+                                    type="text"
+                                    autocomplete="given-name"
+                                    maxlength="80"
+                                    required
+                            >
+                        </div>
+
+                        <!-- type="email" включает проверку формата адреса. -->
+                        <div class="col-12 col-md-6">
+                            <label class="form-label" for="order-email">
+                                E-mail *
+                            </label>
+
+                            <input
+                                    class="form-control"
+                                    id="order-email"
+                                    name="email"
+                                    type="email"
+                                    autocomplete="email"
+                                    required
+                            >
+                        </div>
+
+                        <!-- input-group объединяет префикс телефона и поле. -->
+                        <div class="col-12">
+                            <label class="form-label" for="order-phone">
+                                Телефон
+                            </label>
+
+                            <div class="input-group">
+                                <span class="input-group-text">+7</span>
+
+                                <input
+                                        class="form-control"
+                                        id="order-phone"
+                                        name="phone"
+                                        type="tel"
+                                        autocomplete="tel-national"
+                                        placeholder="900 000-00-00"
+                                        aria-describedby="phone-help"
+                                >
                             </div>
 
-                            <div class="col-12 col-md-6">
-                                <label for="order-email" class="form-label">E-mail *</label>
-                                <input id="order-email" name="email" type="email" class="form-control" required>
+                            <div class="form-text" id="phone-help">
+                                Номер без кода страны +7.
                             </div>
+                        </div>
 
-                            <div class="col-12 col-md-6">
-                                <label for="order-phone" class="form-label">Телефон</label>
-                                <div class="input-group">
-                                    <span class="input-group-text">+7</span>
-                                    <input id="order-phone" name="phone" type="tel" class="form-control" placeholder="900 000-00-00">
-                                </div>
+                        <div class="col-12">
+                            <label class="form-label" for="order-comment">
+                                Комментарий
+                            </label>
+
+                            <textarea
+                                    class="form-control"
+                                    id="order-comment"
+                                    name="comment"
+                                    rows="4"
+                                    maxlength="1000"
+                                    placeholder="Например, котик нужен в подарок"
+                            ></textarea>
+                        </div>
+
+                        <!-- Обязательное согласие оформлено через form-check. -->
+                        <div class="col-12">
+                            <div class="form-check">
+                                <input
+                                        class="form-check-input"
+                                        id="order-agree"
+                                        name="agree"
+                                        type="checkbox"
+                                        value="yes"
+                                        required
+                                >
+
+                                <label class="form-check-label" for="order-agree">
+                                    Я согласен на обработку данных *
+                                </label>
                             </div>
+                        </div>
 
-                            <div class="col-12 col-md-6">
-                                <label for="order-product" class="form-label">Товар</label>
-                                <select id="order-product" name="product" class="form-select">
-                                    <option selected>Выберите товар</option>
-                                    <option value="product-1">Товар 1</option>
-                                    <option value="product-2">Товар 2</option>
-                                    <option value="product-3">Товар 3</option>
-                                </select>
-                            </div>
+                        <div class="col-12">
+                            <div class="d-flex flex-wrap gap-3 mt-2">
 
-                            <div class="col-12">
-                                <label for="order-comment" class="form-label">Комментарий</label>
-                                <textarea id="order-comment" name="comment" class="form-control" rows="4"></textarea>
-                            </div>
-
-                            <div class="col-12">
-                                <div class="form-check">
-                                    <input id="order-agree" name="agree" class="form-check-input" type="checkbox" required>
-                                    <label class="form-check-label" for="order-agree">
-                                        Я согласен на обработку данных *
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div class="col-12 d-flex gap-2">
-                                <button class="btn btn-primary" type="submit">
-                                    Отправить заявку
+                                <!-- Кнопка включается после запуска скрипта формы. -->
+                                <button
+                                        class="btn btn-primary"
+                                        id="check-order"
+                                        type="submit"
+                                        disabled
+                                >
+                                    Проверить заявку
                                 </button>
-                                <button class="btn btn-outline-secondary" type="reset">
+
+                                <!-- reset возвращает исходные значения полей. -->
+                                <button
+                                        class="btn btn-outline-secondary"
+                                        type="reset"
+                                >
                                     Очистить
                                 </button>
                             </div>
                         </div>
-                    </form>
+
+                    </div>
+                </form>
+
+                <!-- Сообщение показывается при отключённом JavaScript. -->
+                <noscript>
+                    <p class="alert alert-warning mt-4 mb-0">
+                        Для расчёта суммы и проверки заявки
+                        включи JavaScript в браузере.
+                    </p>
+                </noscript>
+
+                <!-- Результат проверки доступен программам чтения с экрана. -->
+                <div
+                        class="alert alert-info mt-4 mb-0"
+                        id="order-result"
+                        role="status"
+                        aria-live="polite"
+                        aria-atomic="true"
+                        hidden
+                ></div>
+            </section>
+        </div>
+
+        <!-- Сводка обновляется при выборе котика и количества. -->
+        <div class="col-12 col-lg-5">
+            <aside class="card product-card" aria-labelledby="summary-title">
+                <div class="card-body p-4">
+                    <h2 class="h4 mb-3" id="summary-title">
+                        Твой выбор
+                    </h2>
+
+                    <p
+                            class="text-body-secondary mb-0"
+                            id="summary-placeholder"
+                    >
+                        Выбери котика в форме —
+                        здесь появятся его фотография и стоимость.
+                    </p>
                 </div>
+
+                <!-- До выбора товара сведения скрыты атрибутом hidden. -->
+                <div id="summary-product" hidden>
+                    <img
+                            class="product-image"
+                            id="summary-image"
+                            src="images/cat-ginger.jpg"
+                            alt="Котик Тедди в костюме мишки"
+                    >
+
+                    <div class="card-body p-4">
+                        <h3 class="h5 mb-3" id="summary-name">
+                            Котик «Тедди»
+                        </h3>
+
+                        <!-- Список пар «характеристика — значение». -->
+                        <dl class="row mb-0">
+                            <dt class="col-7 text-body-secondary fw-normal">
+                                Цена за штуку
+                            </dt>
+
+                            <dd class="col-5 text-end" id="summary-price">
+                                —
+                            </dd>
+
+                            <dt class="col-7 text-body-secondary fw-normal">
+                                Количество
+                            </dt>
+
+                            <dd class="col-5 text-end" id="summary-quantity">
+                                —
+                            </dd>
+                        </dl>
+
+                        <hr>
+
+                        <div
+                                class="d-flex flex-wrap justify-content-between align-items-center gap-2"
+                                role="status"
+                                aria-live="polite"
+                                aria-atomic="true"
+                        >
+                            <span class="fw-bold">
+                                Сумма товаров
+                            </span>
+
+                            <span
+                                    class="product-price fs-4"
+                                    id="summary-total"
+                            >
+                                —
+                            </span>
+                        </div>
+
+                        <p class="small text-body-secondary mt-3 mb-0">
+                            Расчёт для выбранного котика и количества.
+                        </p>
+                    </div>
+                </div>
+            </aside>
+
+            <div class="feature-box p-4 mt-4">
+                <h2 class="h5 mb-3">
+                    Хочешь посмотреть остальных?
+                </h2>
+
+                <p class="text-body-secondary">
+                    Сравни фотографии и описания
+                    всех четырёх котиков в каталоге.
+                </p>
+
+                <a class="btn btn-outline-primary" href="catalog.html">
+                    Вернуться в каталог
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+</main>
+
+<!-- Общий подвал сайта. -->
+<footer class="site-footer mt-5 py-4">
+    <div class="container">
+        <div class="row align-items-center g-4">
+            <div class="col-12 col-md-6">
+                <p class="fw-bold mb-2" lang="en">
+                    Plush Cats
+                </p>
+
+                <p class="small text-body-secondary mb-0">
+                    &copy; 2026. Мягкие друзья для тёплых моментов.
+                </p>
+            </div>
+
+            <div class="col-12 col-md-6">
+                <nav
+                        class="d-flex flex-wrap justify-content-md-end gap-3"
+                        aria-label="Навигация в подвале"
+                >
+                    <a href="catalog.html">Каталог</a>
+                    <a href="order.html">Оставить заявку</a>
+                    <a href="index.html#choose">Как выбрать</a>
+                </nav>
             </div>
         </div>
     </div>
-</main>
+</footer>
 
-<script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+<!-- Bootstrap JS обеспечивает работу навигации. -->
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    // Map хранит данные товаров по ключам из списка выбора.
+    const products = new Map([
+        ["teddy", {
+            name: "Котик «Тедди»",
+            price: 1890,
+            image: "images/cat-ginger.jpg",
+            alt: "Котик Тедди в коричневом костюме мишки"
+        }],
+        ["gray", {
+            name: "Котик «Дымок»",
+            price: 1490,
+            image: "images/cat-gray.jpg",
+            alt: "Серый плюшевый котик Дымок"
+        }],
+        ["white", {
+            name: "Котик «Вишенка»",
+            price: 1790,
+            image: "images/cat-white.jpg",
+            alt: "Светлый котик Вишенка с плюшевым мороженым"
+        }],
+        ["pillow", {
+            name: "Котик «Облачко»",
+            price: 2190,
+            image: "images/cat-pillow.jpg",
+            alt: "Светлый котик-подушка Облачко"
+        }]
+    ]);
+
+    // Получаем поля формы и область результата.
+    const form = document.getElementById("order-form");
+    const productSelect = document.getElementById("order-product");
+    const quantityInput = document.getElementById("order-quantity");
+    const nameInput = document.getElementById("order-name");
+    const checkButton = document.getElementById("check-order");
+    const result = document.getElementById("order-result");
+
+    // Получаем элементы сводки выбранного товара.
+    const summaryPlaceholder = document.getElementById("summary-placeholder");
+    const summaryProduct = document.getElementById("summary-product");
+    const summaryImage = document.getElementById("summary-image");
+    const summaryName = document.getElementById("summary-name");
+    const summaryPrice = document.getElementById("summary-price");
+    const summaryQuantity = document.getElementById("summary-quantity");
+    const summaryTotal = document.getElementById("summary-total");
+
+    const priceFormatter = new Intl.NumberFormat("ru-RU");
+
+    // Форматирует число как цену с разделителями и знаком рубля.
+    function formatPrice(value) {
+        return priceFormatter.format(value) + " ₽";
+    }
+
+    // Возвращает допустимое количество или null при ошибке.
+    function getQuantity() {
+        if (!quantityInput.validity.valid) {
+            return null;
+        }
+
+        return quantityInput.valueAsNumber;
+    }
+
+    // Обновляет фотографию, название, цену и сумму товаров.
+    function updateSummary() {
+        const product = products.get(productSelect.value);
+
+        if (!product) {
+            summaryPlaceholder.hidden = false;
+            summaryProduct.hidden = true;
+            return;
+        }
+
+        summaryPlaceholder.hidden = true;
+        summaryProduct.hidden = false;
+
+        summaryImage.src = product.image;
+        summaryImage.alt = product.alt;
+        summaryName.textContent = product.name;
+        summaryPrice.textContent = formatPrice(product.price);
+
+        const quantity = getQuantity();
+
+        if (quantity === null) {
+            summaryQuantity.textContent = "От 1 до 10";
+            summaryTotal.textContent = "—";
+            return;
+        }
+
+        summaryQuantity.textContent = quantity + " шт.";
+        summaryTotal.textContent = formatPrice(product.price * quantity);
+    }
+
+    // Убирает результат проверки после изменения данных.
+    function hideResult() {
+        result.hidden = true;
+        result.textContent = "";
+    }
+
+    // Обновляет сводку после стандартного сброса полей браузером.
+    function handleFormReset() {
+        hideResult();
+        window.setTimeout(updateSummary, 0);
+    }
+
+    // Проверяет форму и показывает сумму без отправки данных.
+    function validateOrder(event) {
+        event.preventDefault();
+
+        // Имя из одних пробелов становится пустым и не проходит required.
+        nameInput.value = nameInput.value.trim();
+
+        if (!form.reportValidity()) {
+            return;
+        }
+
+        const product = products.get(productSelect.value);
+        const quantity = getQuantity();
+
+        if (!product || quantity === null) {
+            return;
+        }
+
+        const total = formatPrice(product.price * quantity);
+
+        result.textContent =
+            "Форма заполнена корректно. "
+            + product.name + ", "
+            + quantity + " шт. Сумма товаров: "
+            + total + ". "
+            + "Это учебная проверка: заявка не отправлена, "
+            + "данные не сохранены.";
+
+        result.hidden = false;
+    }
+
+    // Читаем выбор из ссылки, например order.html?product=teddy.
+    const params = new URLSearchParams(window.location.search);
+    const selectedProduct = params.get("product");
+
+    // Принимаем только товар, существующий в Map.
+    if (products.has(selectedProduct)) {
+        productSelect.value = selectedProduct;
+    }
+
+    // Изменение товара или количества обновляет сводку.
+    productSelect.addEventListener("change", updateSummary);
+    quantityInput.addEventListener("input", updateSummary);
+
+    // Редактирование полей скрывает устаревший результат.
+    form.addEventListener("input", hideResult);
+    form.addEventListener("change", hideResult);
+
+    // Подключаем обработчики очистки и проверки.
+    form.addEventListener("reset", handleFormReset);
+    form.addEventListener("submit", validateOrder);
+
+    // Показываем исходную сводку и включаем кнопку проверки.
+    updateSummary();
+    checkButton.disabled = false;
 </script>
+
 </body>
 </html>

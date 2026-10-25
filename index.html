@@ -1,227 +1,536 @@
 <!DOCTYPE html>
-<html lang="ru">
+
+<!-- Русский язык страницы и тёмная тема Bootstrap. -->
+<html lang="ru" data-bs-theme="dark">
 <head>
+    <!-- Кодировка и масштабирование на мобильных устройствах. -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Главная — Bootstrap Shop</title>
 
-    <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-            rel="stylesheet"
+    <!-- Краткое описание страницы для поисковых систем. -->
+    <meta
+            name="description"
+            content="Plush Cats — магазин плюшевых котиков, котиков-подушек и подарков для уютных объятий."
     >
+
+    <title>Plush Cats — магазин плюшевых котиков</title>
+
+    <!-- Локальный Bootstrap: оформление работает без CDN. -->
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+
+    <!-- Собственные стили подключаются после Bootstrap. -->
     <link rel="stylesheet" href="css/custom.css">
 </head>
 <body>
-<header class="bg-primary text-white py-4">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-12 col-md-8">
-                <h1 class="h3 mb-1">Bootstrap Shop</h1>
-                <p class="mb-0 opacity-75">
-                    Учебный интернет-магазин на Bootstrap
-                </p>
-            </div>
 
-            <div class="col-12 col-md-4 text-md-end mt-3 mt-md-0">
-                <span class="badge bg-light text-primary">
-                    КР №2
-                </span>
-            </div>
-        </div>
-    </div>
-</header>
+<!-- Ссылка для перехода к содержимому с клавиатуры. -->
+<a
+        class="visually-hidden-focusable position-absolute top-0 start-0 p-3 bg-dark text-white z-3"
+        href="#main-content"
+>
+    Перейти к основному содержимому
+</a>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-        <a class="navbar-brand" href="index.html">Bootstrap Shop</a>
+<!-- Шапка сайта с общей навигацией. -->
+<header class="site-header">
+    <nav class="navbar navbar-expand-lg py-3" aria-label="Основная навигация">
+        <div class="container">
+            <a
+                    class="navbar-brand site-brand fs-4"
+                    href="index.html"
+                    lang="en"
+            >
+                Plush Cats
+            </a>
 
-        <button
-                class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#mainNavbar"
-                aria-controls="mainNavbar"
-                aria-expanded="false"
-                aria-label="Переключить навигацию"
-        >
-            <span class="navbar-toggler-icon"></span>
-        </button>
+            <!-- Кнопка раскрывает меню на экранах меньше lg. -->
+            <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#mainNavbar"
+                    aria-controls="mainNavbar"
+                    aria-expanded="false"
+                    aria-label="Открыть или закрыть меню"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <div class="collapse navbar-collapse" id="mainNavbar">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="index.html">Главная</a>
-                </li>
+            <!-- id связывает скрываемое меню с кнопкой. -->
+            <div class="collapse navbar-collapse" id="mainNavbar">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
 
-                <li class="nav-item">
-                    <a class="nav-link" href="catalog.html">Каталог</a>
-                </li>
+                    <!-- active и aria-current обозначают текущую страницу. -->
+                    <li class="nav-item">
+                        <a
+                                class="nav-link active"
+                                aria-current="page"
+                                href="index.html"
+                        >
+                            Главная
+                        </a>
+                    </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="product.html">Товар</a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="catalog.html">
+                            Каталог
+                        </a>
+                    </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="order.html">Заявка</a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="product.html">
+                            Котик Тедди
+                        </a>
+                    </li>
 
-                <li class="nav-item dropdown">
-                    <a
-                            class="nav-link dropdown-toggle"
-                            href="#"
-                            role="button"
-                            data-bs-toggle="dropdown"
-                            aria-expanded="false"
-                    >
-                        Дополнительно
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="catalog.html">Все товары</a></li>
-                        <li><a class="dropdown-item" href="order.html">Оформить заявку</a></li>
-                        <li><a class="dropdown-item" href="index.html#popular">Популярное</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
+                    <!-- Выпадающее меню работает через Bootstrap JS. -->
+                    <li class="nav-item dropdown">
+                        <a
+                                class="nav-link dropdown-toggle"
+                                href="#"
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                        >
+                            Покупателю
+                        </a>
 
-<main>
-    <section class="container my-5">
-        <div class="row align-items-center g-4">
-            <div class="col-12 col-lg-6">
-                <h2 class="display-5 fw-bold">
-                    Учебный каталог товаров на Bootstrap
-                </h2>
-                <p class="lead text-muted">
-                    Проект демонстрирует использование Bootstrap-сетки,
-                    адаптивных колонок и базовых utility-классов.
-                </p>
-                <a class="btn btn-primary btn-lg" href="catalog.html">
-                    Перейти в каталог
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="#popular">
+                                    Наши котики
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="#choose">
+                                    Как выбрать подарок
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="order.html">
+                                    Оставить заявку
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <a
+                        class="btn btn-primary ms-lg-3 mt-3 mt-lg-0"
+                        href="order.html"
+                >
+                    Хочу котика
                 </a>
             </div>
+        </div>
+    </nav>
+</header>
 
-            <div class="col-12 col-lg-6">
-                <div class="placeholder-box p-5 bg-light border rounded text-center">
-                    <p class="mb-0 text-muted">
-                        Здесь может быть изображение, баннер или промо-блок.
+<!-- Основное содержимое страницы. -->
+<main id="main-content">
+
+    <!-- Hero-блок: текст и изображение на Bootstrap-сетке. -->
+    <section class="container my-4 my-lg-5" aria-labelledby="hero-title">
+        <div class="hero hero-redesign">
+            <div class="row align-items-center g-4 g-lg-5">
+
+                <!-- На узком экране — вся строка, от lg — 7 колонок из 12. -->
+                <div class="col-12 col-lg-7">
+                    <h1 class="hero-title mb-4" id="hero-title">
+                        Плюшевые котики
+                        <span class="text-primary">
+                            для уютных вечеров
+                        </span>
+                    </h1>
+
+                    <p class="hero-description lead mb-4">
+                        Котик в костюме мишки, серьёзный Дымок
+                        или сонное Облачко — найди плюшевого друга
+                        для себя или в подарок.
                     </p>
+
+                    <!-- flex-wrap переносит кнопки при нехватке ширины. -->
+                    <div class="d-flex flex-wrap gap-3">
+                        <a class="btn btn-primary btn-lg" href="catalog.html">
+                            Выбрать котика
+                        </a>
+
+                        <a class="btn btn-outline-primary btn-lg" href="product.html">
+                            Познакомиться с Тедди
+                        </a>
+                    </div>
                 </div>
+
+                <!-- От lg изображение занимает оставшиеся 5 колонок. -->
+                <div class="col-12 col-lg-5">
+                    <a
+                            class="d-block"
+                            href="product.html"
+                            aria-label="Открыть описание котика Тедди"
+                    >
+                        <!-- alt описывает фото, fetchpriority повышает приоритет загрузки. -->
+                        <img
+                                class="hero-image"
+                                src="images/cat-ginger.jpg"
+                                alt="Плюшевый котик Тедди в коричневом костюме мишки"
+                                fetchpriority="high"
+                        >
+                    </a>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <section class="container my-5">
-        <h2 class="text-center mb-4">Преимущества проекта</h2>
+    <!-- Преимущества: три колонки от md, одна — на узких экранах. -->
+    <section
+            class="container my-5"
+            aria-labelledby="features-title"
+    >
+        <div class="text-center mb-4">
+            <h2 class="section-heading h2" id="features-title">
+                Больше, чем просто игрушка
+            </h2>
 
+            <p class="text-body-secondary mb-0">
+                У каждого котика свой характер и своё место рядом с тобой.
+            </p>
+        </div>
+
+        <!-- g-4 задаёт промежутки между колонками и строками. -->
         <div class="row g-4">
             <div class="col-12 col-md-4">
-                <div class="p-4 border rounded h-100 bg-white">
-                    <h3 class="h5">Bootstrap-сетка</h3>
-                    <p class="mb-0 text-muted">
-                        Страница построена на 12-колоночной системе Bootstrap.
+                <div class="feature-box p-4">
+                    <h3 class="h5 mb-3">
+                        Для уютных вечеров
+                    </h3>
+
+                    <p class="text-body-secondary mb-0">
+                        Котик-подушка составит компанию
+                        за любимым сериалом или книгой.
                     </p>
                 </div>
             </div>
 
             <div class="col-12 col-md-4">
-                <div class="p-4 border rounded h-100 bg-white">
-                    <h3 class="h5">Адаптивность</h3>
-                    <p class="mb-0 text-muted">
-                        Колонки меняют ширину в зависимости от размера экрана.
+                <div class="feature-box p-4">
+                    <h3 class="h5 mb-3">
+                        Для маленького сюрприза
+                    </h3>
+
+                    <p class="text-body-secondary mb-0">
+                        Забавный плюшевый друг — способ
+                        порадовать близкого без особого повода.
                     </p>
                 </div>
             </div>
 
             <div class="col-12 col-md-4">
-                <div class="p-4 border rounded h-100 bg-white">
-                    <h3 class="h5">Готовая база</h3>
-                    <p class="mb-0 text-muted">
-                        Проект подготовлен к добавлению карточек, форм и модальных окон.
+                <div class="feature-box p-4">
+                    <h3 class="h5 mb-3">
+                        Для своей коллекции
+                    </h3>
+
+                    <p class="text-body-secondary mb-0">
+                        Важный Дымок, нежная Вишенка или
+                        Тедди в костюме — выбирай своего любимца.
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="container my-5" id="popular">
-        <div class="d-flex justify-content-between align-items-center mb-4">
-            <h2 class="mb-0">Популярные товары</h2>
+    <!-- id="popular" позволяет перейти к товарам по ссылке из меню. -->
+    <section
+            class="container my-5"
+            id="popular"
+            aria-labelledby="popular-title"
+    >
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+            <div>
+                <h2 class="section-heading h2 mb-2" id="popular-title">
+                    Знакомься: наши котики
+                </h2>
+
+                <p class="text-body-secondary mb-0">
+                    Четыре характера. Кого заберёшь домой?
+                </p>
+            </div>
+
             <a class="btn btn-outline-primary" href="catalog.html">
-                Все товары
+                Открыть каталог
             </a>
         </div>
 
+        <!-- По одной карточке на узком экране, по две от md, по четыре от xl. -->
         <div class="row g-4">
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="border rounded h-100 p-4">
-                    <span class="badge bg-success mb-3">Новинка</span>
-                    <h3 class="h5">Товар 1</h3>
-                    <p class="text-muted">
-                        Краткое описание учебного товара.
-                    </p>
-                    <p class="fw-bold mb-3">1000 руб.</p>
-                    <a class="btn btn-primary" href="product.html">
-                        Подробнее
-                    </a>
-                </div>
+
+            <!-- Карточка Тедди ведёт на отдельную страницу товара. -->
+            <div class="col-12 col-md-6 col-xl-3">
+                <article class="card product-card h-100">
+
+                    <!-- loading="lazy" откладывает загрузку изображения вне экрана. -->
+                    <img
+                            class="product-image"
+                            src="images/cat-ginger.jpg"
+                            alt="Котик Тедди в костюме мишки с круглыми ушками"
+                            loading="lazy"
+                    >
+
+                    <div class="card-body d-flex flex-column p-4">
+                        <div class="mb-3">
+                            <span class="badge bg-primary text-dark">
+                                В костюме мишки
+                            </span>
+                        </div>
+
+                        <h3 class="card-title h5">
+                            Котик «Тедди»
+                        </h3>
+
+                        <p class="card-text text-body-secondary">
+                            Большие глаза, мягкие лапки
+                            и костюм для самых уютных объятий.
+                        </p>
+
+                        <!-- mt-auto прижимает цену и кнопку к низу карточки. -->
+                        <p class="product-price fs-4 mt-auto mb-3">
+                            1 890 ₽
+                        </p>
+
+                        <a
+                                class="btn btn-primary w-100"
+                                href="product.html"
+                                aria-label="Подробнее о котике Тедди"
+                        >
+                            Подробнее
+                        </a>
+                    </div>
+                </article>
             </div>
 
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="border rounded h-100 p-4">
-                    <span class="badge bg-warning text-dark mb-3">Хит</span>
-                    <h3 class="h5">Товар 2</h3>
-                    <p class="text-muted">
-                        Краткое описание учебного товара.
-                    </p>
-                    <p class="fw-bold mb-3">1500 руб.</p>
-                    <a class="btn btn-primary" href="product.html">
-                        Подробнее
-                    </a>
-                </div>
+            <!-- Карточка Дымка ведёт к этому товару в каталоге. -->
+            <div class="col-12 col-md-6 col-xl-3">
+                <article class="card product-card h-100">
+                    <img
+                            class="product-image"
+                            src="images/cat-gray.jpg"
+                            alt="Серый плюшевый котик Дымок с розовыми подушечками лап"
+                            loading="lazy"
+                    >
+
+                    <div class="card-body d-flex flex-column p-4">
+                        <div class="mb-3">
+                            <span class="badge bg-primary text-dark">
+                                С характером
+                            </span>
+                        </div>
+
+                        <h3 class="card-title h5">
+                            Котик «Дымок»
+                        </h3>
+
+                        <p class="card-text text-body-secondary">
+                            Серьёзный взгляд и очаровательные лапки.
+                            Для тех, кто любит котиков с характером.
+                        </p>
+
+                        <p class="product-price fs-4 mt-auto mb-3">
+                            1 490 ₽
+                        </p>
+
+                        <a
+                                class="btn btn-outline-primary w-100"
+                                href="catalog.html#cat-gray"
+                                aria-label="Найти котика Дымок в каталоге"
+                        >
+                            В каталог
+                        </a>
+                    </div>
+                </article>
             </div>
 
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="border rounded h-100 p-4">
-                    <span class="badge bg-danger mb-3">Скидка</span>
-                    <h3 class="h5">Товар 3</h3>
-                    <p class="text-muted">
-                        Краткое описание учебного товара.
+            <!-- Карточка Вишенки. -->
+            <div class="col-12 col-md-6 col-xl-3">
+                <article class="card product-card h-100">
+                    <img
+                            class="product-image"
+                            src="images/cat-white.jpg"
+                            alt="Светлый котик Вишенка с плюшевым мороженым и красной вишней"
+                            loading="lazy"
+                    >
+
+                    <div class="card-body d-flex flex-column p-4">
+                        <div class="mb-3">
+                            <span class="badge bg-primary text-dark">
+                                Сладкий подарок
+                            </span>
+                        </div>
+
+                        <h3 class="card-title h5">
+                            Котик «Вишенка»
+                        </h3>
+
+                        <p class="card-text text-body-secondary">
+                            Нежный котик с мороженым
+                            и яркой вишенкой на макушке.
+                        </p>
+
+                        <p class="product-price fs-4 mt-auto mb-3">
+                            1 790 ₽
+                        </p>
+
+                        <a
+                                class="btn btn-outline-primary w-100"
+                                href="catalog.html#cat-white"
+                                aria-label="Найти котика Вишенка в каталоге"
+                        >
+                            В каталог
+                        </a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Карточка Облачка. h-100 выравнивает высоту карточек в строке. -->
+            <div class="col-12 col-md-6 col-xl-3">
+                <article class="card product-card h-100">
+                    <img
+                            class="product-image"
+                            src="images/cat-pillow.jpg"
+                            alt="Большой светлый котик-подушка Облачко с закрытыми глазками"
+                            loading="lazy"
+                    >
+
+                    <div class="card-body d-flex flex-column p-4">
+                        <div class="mb-3">
+                            <span class="badge bg-primary text-dark">
+                                Котик-подушка
+                            </span>
+                        </div>
+
+                        <h3 class="card-title h5">
+                            Котик «Облачко»
+                        </h3>
+
+                        <p class="card-text text-body-secondary">
+                            Круглый сонный друг
+                            для отдыха и неспешных домашних вечеров.
+                        </p>
+
+                        <p class="product-price fs-4 mt-auto mb-3">
+                            2 190 ₽
+                        </p>
+
+                        <a
+                                class="btn btn-outline-primary w-100"
+                                href="catalog.html#cat-pillow"
+                                aria-label="Найти котика Облачко в каталоге"
+                        >
+                            В каталог
+                        </a>
+                    </div>
+                </article>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Собственный раздел с подсказками по выбору подарка. -->
+    <section
+            class="container my-5"
+            id="choose"
+            aria-labelledby="choose-title"
+    >
+        <div class="feature-box p-4 p-lg-5">
+            <div class="row align-items-center g-4 g-lg-5">
+                <div class="col-12 col-lg-5">
+                    <h2 class="section-heading h2 mb-3" id="choose-title">
+                        Как выбрать своего котика?
+                    </h2>
+
+                    <p class="text-body-secondary mb-0">
+                        Подумай, кому достанется подарок
+                        и какие маленькие радости он любит.
                     </p>
-                    <p class="fw-bold mb-3">2000 руб.</p>
-                    <a class="btn btn-primary" href="product.html">
-                        Подробнее
-                    </a>
+                </div>
+
+                <div class="col-12 col-lg-7">
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-3">
+                            <strong class="text-primary">
+                                Для отдыха:
+                            </strong>
+                            присмотрись к котику-подушке «Облачко».
+                        </li>
+
+                        <li class="mb-3">
+                            <strong class="text-primary">
+                                Для любителей необычного:
+                            </strong>
+                            выбирай Тедди в костюме мишки.
+                        </li>
+
+                        <li class="mb-3">
+                            <strong class="text-primary">
+                                Для нежного подарка:
+                            </strong>
+                            познакомься с Вишенкой.
+                        </li>
+
+                        <li>
+                            <strong class="text-primary">
+                                Для человека с характером:
+                            </strong>
+                            серьёзный Дымок уже ждёт.
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
+
 </main>
 
-<footer class="bg-dark text-white py-4 mt-5">
+<!-- Подвал: две колонки от md, вертикальное расположение на узком экране. -->
+<footer class="site-footer mt-5 py-4">
     <div class="container">
-        <div class="row align-items-center g-3">
+        <div class="row align-items-center g-4">
             <div class="col-12 col-md-6">
-                <p class="mb-0">
-                    &copy; 2026 Bootstrap Shop. Учебный проект.
+                <p class="fw-bold mb-2" lang="en">
+                    Plush Cats
+                </p>
+
+                <p class="small text-body-secondary mb-0">
+                    &copy; 2026. Мягкие друзья для тёплых моментов.
                 </p>
             </div>
 
-            <div class="col-12 col-md-6 text-md-end">
-                <a class="text-white text-decoration-none me-3" href="catalog.html">
-                    Каталог
-                </a>
-                <a class="text-white text-decoration-none" href="order.html">
-                    Заявка
-                </a>
+            <div class="col-12 col-md-6">
+                <nav
+                        class="d-flex flex-wrap justify-content-md-end gap-3"
+                        aria-label="Навигация в подвале"
+                >
+                    <a href="catalog.html">
+                        Каталог
+                    </a>
+
+                    <a href="order.html">
+                        Оставить заявку
+                    </a>
+
+                    <a href="#choose">
+                        Как выбрать
+                    </a>
+                </nav>
             </div>
         </div>
     </div>
 </footer>
 
-<script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
-</script>
+<!-- Bundle обеспечивает работу мобильного и выпадающего меню. -->
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

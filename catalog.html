@@ -1,234 +1,766 @@
 <!DOCTYPE html>
-<html lang="ru">
+
+<!-- Язык страницы и тёмная тема Bootstrap. -->
+<html lang="ru" data-bs-theme="dark">
 <head>
+    <!-- Кодировка и адаптивный масштаб страницы. -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Каталог — Bootstrap Shop</title>
 
-    <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-            rel="stylesheet"
+    <meta
+            name="description"
+            content="Каталог Plush Cats: Тедди, Дымок, Вишенка и котик-подушка Облачко."
     >
+
+    <title>Каталог — Plush Cats</title>
+
+    <!-- Локальный Bootstrap и собственные стили поверх него. -->
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/custom.css">
 </head>
-<body class="bg-light">
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-        <a class="navbar-brand" href="index.html">Bootstrap Shop</a>
+<body>
 
-        <button
-                class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#mainNavbar"
-                aria-controls="mainNavbar"
-                aria-expanded="false"
-                aria-label="Переключить навигацию"
+<!-- Быстрый переход к содержимому при работе с клавиатуры. -->
+<a
+        class="visually-hidden-focusable position-absolute top-0 start-0 p-3 bg-dark text-white z-3"
+        href="#main-content"
+>
+    Перейти к основному содержимому
+</a>
+
+<!-- Общая шапка сайта. -->
+<header class="site-header">
+    <nav class="navbar navbar-expand-lg py-3" aria-label="Основная навигация">
+        <div class="container">
+            <a
+                    class="navbar-brand site-brand fs-4"
+                    href="index.html"
+                    lang="en"
+            >
+                Plush Cats
+            </a>
+
+            <!-- Кнопка раскрывает меню на небольших экранах. -->
+            <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#mainNavbar"
+                    aria-controls="mainNavbar"
+                    aria-expanded="false"
+                    aria-label="Открыть или закрыть меню"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainNavbar">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            Главная
+                        </a>
+                    </li>
+
+                    <!-- active обозначает текущую страницу. -->
+                    <li class="nav-item">
+                        <a
+                                class="nav-link active"
+                                aria-current="page"
+                                href="catalog.html"
+                        >
+                            Каталог
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="product.html">
+                            Котик Тедди
+                        </a>
+                    </li>
+
+                    <!-- Выпадающее меню Bootstrap. -->
+                    <li class="nav-item dropdown">
+                        <a
+                                class="nav-link dropdown-toggle"
+                                href="#"
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                        >
+                            Покупателю
+                        </a>
+
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="index.html#popular">
+                                    Наши котики
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="index.html#choose">
+                                    Как выбрать подарок
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="order.html">
+                                    Оставить заявку
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <a
+                        class="btn btn-primary ms-lg-3 mt-3 mt-lg-0"
+                        href="order.html"
+                >
+                    Хочу котика
+                </a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main class="container my-4 my-lg-5" id="main-content">
+
+    <!-- Хлебные крошки показывают положение страницы на сайте. -->
+    <nav aria-label="Хлебные крошки">
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item">
+                <a href="index.html">Главная</a>
+            </li>
+
+            <li class="breadcrumb-item active" aria-current="page">
+                Каталог
+            </li>
+        </ol>
+    </nav>
+
+    <!-- Заголовок каталога и переход к полной форме заявки. -->
+    <div class="row align-items-center g-3 mb-4">
+        <div class="col-12 col-lg-8">
+            <h1 class="section-heading display-5 mb-3">
+                Найди своего котика
+            </h1>
+
+            <p class="lead text-body-secondary mb-0">
+                Для объятий, подарков и уютных вечеров.
+                Выбирай того, кто понравится именно тебе.
+            </p>
+        </div>
+
+        <div class="col-12 col-lg-4 text-lg-end">
+            <a class="btn btn-outline-primary" href="order.html">
+                Перейти к форме заявки
+            </a>
+        </div>
+    </div>
+
+    <!-- Фильтр показывается после запуска JavaScript. -->
+    <section
+            class="feature-box p-3 p-md-4 mb-4"
+            id="catalog-filter"
+            aria-labelledby="filter-title"
+            hidden
+    >
+        <div class="row align-items-end g-3">
+            <div class="col-12 col-md-7 col-lg-5">
+                <h2 class="h5 mb-3" id="filter-title">
+                    Какого котика ищем?
+                </h2>
+
+                <label class="form-label" for="category-filter">
+                    Категория
+                </label>
+
+                <select
+                        class="form-select"
+                        id="category-filter"
+                        name="category"
+                        aria-controls="catalog-grid"
+                >
+                    <option value="all">Все котики</option>
+                    <option value="classic">Классические котики</option>
+                    <option value="costume">Котики в костюмах</option>
+                    <option value="pillow">Котики-подушки</option>
+                </select>
+            </div>
+
+            <!-- Счётчик доступен программам чтения с экрана. -->
+            <div class="col-12 col-md-5 col-lg-7">
+                <p
+                        class="text-body-secondary mb-0 text-md-end"
+                        id="catalog-count"
+                        role="status"
+                        aria-live="polite"
+                        aria-atomic="true"
+                >
+                    Показано: 4 из 4
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Адаптивная сетка: 1, 2, 3 или 4 карточки в строке. -->
+    <div class="row g-4" id="catalog-grid">
+
+        <!-- data-category хранит категорию для фильтра. -->
+        <div
+                class="col-12 col-md-6 col-lg-4 col-xl-3"
+                id="cat-teddy"
+                data-category="costume"
         >
-            <span class="navbar-toggler-icon"></span>
-        </button>
+            <article class="card product-card h-100">
+                <img
+                        class="product-image"
+                        src="images/cat-ginger.jpg"
+                        alt="Котик Тедди в коричневом костюме мишки"
+                >
 
-        <div class="collapse navbar-collapse" id="mainNavbar">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html">Главная</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="catalog.html">Каталог</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="product.html">Товар</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="order.html">Заявка</a>
-                </li>
-
-                <li class="nav-item dropdown">
-                    <a
-                            class="nav-link dropdown-toggle"
-                            href="#"
-                            role="button"
-                            data-bs-toggle="dropdown"
-                            aria-expanded="false"
-                    >
-                        Дополнительно
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="catalog.html">Все товары</a></li>
-                        <li><a class="dropdown-item" href="order.html">Оформить заявку</a></li>
-                        <li><a class="dropdown-item" href="index.html#popular">Популярное</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
-<main class="container my-5">
-    <div class="alert alert-info" role="alert">
-        Выберите товар из каталога. Карточки товаров оформлены с помощью компонента Bootstrap `card`.
-    </div>
-
-    <div class="d-flex justify-content-between align-items-center mb-4">
-        <h1 class="h2 mb-0">Каталог товаров</h1>
-        <a class="btn btn-outline-primary" href="order.html">
-            Оставить заявку
-        </a>
-    </div>
-
-    <div class="row g-4">
-        <div class="col-12 col-md-6 col-lg-4">
-            <div class="card h-100 shadow-sm">
-                <div class="card-body d-flex flex-column">
-                    <div class="d-flex justify-content-between align-items-start mb-3">
-                        <h2 class="card-title h5">Товар 1</h2>
-                        <span class="badge bg-success">Новинка</span>
+                <div class="card-body d-flex flex-column p-4">
+                    <div class="mb-3">
+                        <span class="badge bg-primary text-dark">
+                            В костюме мишки
+                        </span>
                     </div>
 
-                    <p class="card-text text-muted">
-                        Краткое описание учебного товара для каталога.
+                    <h2 class="card-title h5">
+                        Котик «Тедди»
+                    </h2>
+
+                    <p class="card-text text-body-secondary">
+                        Большие глаза, мягкие лапки
+                        и забавный костюм с круглыми ушками.
                     </p>
 
-                    <p class="fw-bold fs-5 mt-auto">1000 руб.</p>
+                    <!-- mt-auto выравнивает нижнюю часть карточек. -->
+                    <p class="product-price fs-4 mt-auto mb-3">
+                        1 890 ₽
+                    </p>
 
-                    <div class="d-flex gap-2">
-                        <a class="btn btn-primary" href="product.html">Подробнее</a>
+                    <div class="d-grid gap-2">
+                        <!-- Открывает окно; data-product передаёт выбранного котика. -->
                         <button
-                                class="btn btn-outline-primary"
+                                class="btn btn-primary"
                                 type="button"
                                 data-bs-toggle="modal"
                                 data-bs-target="#orderModal"
+                                data-product="teddy"
+                                aria-label="Заказать котика Тедди"
                         >
                             Заказать
                         </button>
+
+                        <!-- Отдельная страница описания предусмотрена для Тедди. -->
+                        <a
+                                class="btn btn-outline-primary"
+                                href="product.html"
+                        >
+                            Подробнее о Тедди
+                        </a>
                     </div>
                 </div>
-            </div>
+            </article>
         </div>
 
-        <div class="col-12 col-md-6 col-lg-4">
-            <div class="card h-100 shadow-sm">
-                <div class="card-body d-flex flex-column">
-                    <div class="d-flex justify-content-between align-items-start mb-3">
-                        <h2 class="card-title h5">Товар 2</h2>
-                        <span class="badge bg-warning text-dark">Хит</span>
+        <!-- Карточка Дымка. id используется в ссылках с главной. -->
+        <div
+                class="col-12 col-md-6 col-lg-4 col-xl-3"
+                id="cat-gray"
+                data-category="classic"
+        >
+            <article class="card product-card h-100">
+                <img
+                        class="product-image"
+                        src="images/cat-gray.jpg"
+                        alt="Серый котик Дымок с розовыми подушечками лап"
+                        loading="lazy"
+                >
+
+                <div class="card-body d-flex flex-column p-4">
+                    <div class="mb-3">
+                        <span class="badge bg-primary text-dark">
+                            С характером
+                        </span>
                     </div>
 
-                    <p class="card-text text-muted">
-                        Краткое описание второго учебного товара.
+                    <h2 class="card-title h5">
+                        Котик «Дымок»
+                    </h2>
+
+                    <p class="card-text text-body-secondary">
+                        Серьёзный взгляд и очаровательные лапки.
+                        Для любителей котиков с характером.
                     </p>
 
-                    <p class="fw-bold fs-5 mt-auto">1500 руб.</p>
+                    <p class="product-price fs-4 mt-auto mb-3">
+                        1 490 ₽
+                    </p>
 
-                    <div class="d-flex gap-2">
-                        <a class="btn btn-primary" href="product.html">Подробнее</a>
+                    <div class="d-grid gap-2">
                         <button
-                                class="btn btn-outline-primary"
+                                class="btn btn-primary"
                                 type="button"
                                 data-bs-toggle="modal"
                                 data-bs-target="#orderModal"
+                                data-product="gray"
+                                aria-label="Заказать котика Дымок"
                         >
                             Заказать
                         </button>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <div class="col-12 col-md-6 col-lg-4">
-            <div class="card h-100 shadow-sm">
-                <div class="card-body d-flex flex-column">
-                    <div class="d-flex justify-content-between align-items-start mb-3">
-                        <h2 class="card-title h5">Товар 3</h2>
-                        <span class="badge bg-danger">Скидка</span>
-                    </div>
-
-                    <p class="card-text text-muted">
-                        Краткое описание третьего учебного товара.
-                    </p>
-
-                    <p class="fw-bold fs-5 mt-auto">2000 руб.</p>
-
-                    <div class="d-flex gap-2">
-                        <a class="btn btn-primary" href="product.html">Подробнее</a>
+                        <!-- disabled отключает кнопку без отдельной страницы товара. -->
                         <button
                                 class="btn btn-outline-primary"
                                 type="button"
-                                data-bs-toggle="modal"
-                                data-bs-target="#orderModal"
+                                disabled
                         >
-                            Заказать
+                            Подробнее о Дымке
                         </button>
                     </div>
                 </div>
-            </div>
+            </article>
         </div>
+
+        <!-- Карточка Вишенки. -->
+        <div
+                class="col-12 col-md-6 col-lg-4 col-xl-3"
+                id="cat-white"
+                data-category="classic"
+        >
+            <article class="card product-card h-100">
+                <img
+                        class="product-image"
+                        src="images/cat-white.jpg"
+                        alt="Светлый котик Вишенка с мороженым и красной вишней"
+                        loading="lazy"
+                >
+
+                <div class="card-body d-flex flex-column p-4">
+                    <div class="mb-3">
+                        <span class="badge bg-primary text-dark">
+                            Сладкий подарок
+                        </span>
+                    </div>
+
+                    <h2 class="card-title h5">
+                        Котик «Вишенка»
+                    </h2>
+
+                    <p class="card-text text-body-secondary">
+                        Нежный котик с плюшевым мороженым
+                        и яркой вишенкой на макушке.
+                    </p>
+
+                    <p class="product-price fs-4 mt-auto mb-3">
+                        1 790 ₽
+                    </p>
+
+                    <div class="d-grid gap-2">
+                        <button
+                                class="btn btn-primary"
+                                type="button"
+                                data-bs-toggle="modal"
+                                data-bs-target="#orderModal"
+                                data-product="white"
+                                aria-label="Заказать котика Вишенка"
+                        >
+                            Заказать
+                        </button>
+
+                        <button
+                                class="btn btn-outline-primary"
+                                type="button"
+                                disabled
+                        >
+                            Подробнее о Вишенке
+                        </button>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <!-- Карточка котика-подушки. -->
+        <div
+                class="col-12 col-md-6 col-lg-4 col-xl-3"
+                id="cat-pillow"
+                data-category="pillow"
+        >
+            <article class="card product-card h-100">
+                <img
+                        class="product-image"
+                        src="images/cat-pillow.jpg"
+                        alt="Круглый светлый котик-подушка Облачко с закрытыми глазками"
+                        loading="lazy"
+                >
+
+                <div class="card-body d-flex flex-column p-4">
+                    <div class="mb-3">
+                        <span class="badge bg-primary text-dark">
+                            Котик-подушка
+                        </span>
+                    </div>
+
+                    <h2 class="card-title h5">
+                        Котик «Облачко»
+                    </h2>
+
+                    <p class="card-text text-body-secondary">
+                        Сонный круглый друг для отдыха
+                        и неспешных домашних вечеров.
+                    </p>
+
+                    <p class="product-price fs-4 mt-auto mb-3">
+                        2 190 ₽
+                    </p>
+
+                    <div class="d-grid gap-2">
+                        <button
+                                class="btn btn-primary"
+                                type="button"
+                                data-bs-toggle="modal"
+                                data-bs-target="#orderModal"
+                                data-product="pillow"
+                                aria-label="Заказать котика Облачко"
+                        >
+                            Заказать
+                        </button>
+
+                        <button
+                                class="btn btn-outline-primary"
+                                type="button"
+                                disabled
+                        >
+                            Подробнее об Облачке
+                        </button>
+                    </div>
+                </div>
+            </article>
+        </div>
+
     </div>
+
+    <!-- Дополнительная подсказка со ссылкой на главную. -->
+    <aside class="feature-box p-4 mt-5" aria-labelledby="help-title">
+        <div class="row align-items-center g-3">
+            <div class="col-12 col-md-8">
+                <h2 class="h5 mb-2" id="help-title">
+                    Пока не знаешь, кого выбрать?
+                </h2>
+
+                <p class="text-body-secondary mb-0">
+                    На главной странице есть небольшая
+                    подсказка по выбору подарка.
+                </p>
+            </div>
+
+            <div class="col-12 col-md-4 text-md-end">
+                <a class="btn btn-outline-primary" href="index.html#choose">
+                    Как выбрать котика
+                </a>
+            </div>
+        </div>
+    </aside>
+
 </main>
 
+<!-- Общий подвал сайта. -->
+<footer class="site-footer mt-5 py-4">
+    <div class="container">
+        <div class="row align-items-center g-4">
+            <div class="col-12 col-md-6">
+                <p class="fw-bold mb-2" lang="en">
+                    Plush Cats
+                </p>
+
+                <p class="small text-body-secondary mb-0">
+                    &copy; 2026. Мягкие друзья для тёплых моментов.
+                </p>
+            </div>
+
+            <div class="col-12 col-md-6">
+                <nav
+                        class="d-flex flex-wrap justify-content-md-end gap-3"
+                        aria-label="Навигация в подвале"
+                >
+                    <a href="catalog.html">Каталог</a>
+                    <a href="order.html">Оставить заявку</a>
+                    <a href="index.html#choose">Как выбрать</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Одно модальное окно используется всеми кнопками «Заказать». -->
 <div
         class="modal fade"
         id="orderModal"
         tabindex="-1"
         aria-labelledby="orderModalLabel"
+        aria-describedby="orderModalDescription"
         aria-hidden="true"
 >
-    <div class="modal-dialog">
+    <!-- Центрирование окна и прокрутка длинного содержимого. -->
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
+
             <div class="modal-header">
                 <h2 class="modal-title h5" id="orderModalLabel">
-                    Быстрая заявка
+                    Заявка на котика
                 </h2>
+
                 <button
                         type="button"
                         class="btn-close"
                         data-bs-dismiss="modal"
-                        aria-label="Закрыть"
+                        aria-label="Закрыть окно заявки"
                 ></button>
             </div>
 
             <div class="modal-body">
-                <p class="text-muted">
-                    Оставьте контактные данные, и менеджер свяжется с вами.
+                <p class="text-body-secondary" id="orderModalDescription">
+                    Выбери котика и заполни контактные данные.
+                    Поля со звёздочкой обязательны.
                 </p>
 
-                <form>
+                <p class="small text-body-secondary">
+                    Это учебная форма. Данные не отправляются.
+                </p>
+
+                <!-- name задаёт имя поля, required делает его обязательным. -->
+                <form id="quick-order-form">
                     <div class="mb-3">
-                        <label for="modal-name" class="form-label">Имя</label>
-                        <input id="modal-name" name="name" type="text" class="form-control" required>
+                        <label for="modal-product" class="form-label">
+                            Котик *
+                        </label>
+
+                        <select
+                                class="form-select"
+                                id="modal-product"
+                                name="product"
+                                required
+                        >
+                            <option value="teddy">Тедди — 1 890 ₽</option>
+                            <option value="gray">Дымок — 1 490 ₽</option>
+                            <option value="white">Вишенка — 1 790 ₽</option>
+                            <option value="pillow">Облачко — 2 190 ₽</option>
+                        </select>
                     </div>
 
                     <div class="mb-3">
-                        <label for="modal-phone" class="form-label">Телефон</label>
-                        <input id="modal-phone" name="phone" type="tel" class="form-control" required>
+                        <label for="modal-name" class="form-label">
+                            Имя *
+                        </label>
+
+                        <input
+                                class="form-control"
+                                id="modal-name"
+                                name="name"
+                                type="text"
+                                autocomplete="given-name"
+                                maxlength="80"
+                                required
+                        >
                     </div>
 
+                    <!-- type="email" включает проверку формата адреса браузером. -->
+                    <div class="mb-3">
+                        <label for="modal-email" class="form-label">
+                            E-mail *
+                        </label>
+
+                        <input
+                                class="form-control"
+                                id="modal-email"
+                                name="email"
+                                type="email"
+                                autocomplete="email"
+                                required
+                        >
+                    </div>
+
+                    <!-- input-group объединяет префикс телефона и поле. -->
+                    <div class="mb-3">
+                        <label for="modal-phone" class="form-label">
+                            Телефон
+                        </label>
+
+                        <div class="input-group">
+                            <span class="input-group-text">+7</span>
+
+                            <input
+                                    class="form-control"
+                                    id="modal-phone"
+                                    name="phone"
+                                    type="tel"
+                                    autocomplete="tel-national"
+                                    placeholder="900 000-00-00"
+                                    aria-describedby="modal-phone-help"
+                            >
+                        </div>
+
+                        <div class="form-text" id="modal-phone-help">
+                            Номер без кода страны +7.
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="modal-comment" class="form-label">
+                            Комментарий
+                        </label>
+
+                        <textarea
+                                class="form-control"
+                                id="modal-comment"
+                                name="comment"
+                                rows="3"
+                                maxlength="1000"
+                                placeholder="Например, котик нужен в подарок"
+                        ></textarea>
+                    </div>
+
+                    <!-- Обязательный чекбокс согласия. -->
                     <div class="form-check mb-3">
-                        <input id="modal-agree" name="agree" class="form-check-input" type="checkbox" required>
+                        <input
+                                class="form-check-input"
+                                id="modal-agree"
+                                name="agree"
+                                type="checkbox"
+                                value="yes"
+                                required
+                        >
+
                         <label class="form-check-label" for="modal-agree">
-                            Согласен на обработку данных
+                            Согласен на обработку данных *
                         </label>
                     </div>
                 </form>
+
+                <!-- Сообщение появляется после успешной проверки формы. -->
+                <div
+                        class="alert alert-info mb-0"
+                        id="order-result"
+                        role="status"
+                        aria-live="polite"
+                        aria-atomic="true"
+                        hidden
+                ></div>
             </div>
 
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                <button
+                        class="btn btn-outline-secondary"
+                        type="button"
+                        data-bs-dismiss="modal"
+                >
                     Закрыть
                 </button>
-                <button type="button" class="btn btn-primary">
-                    Отправить
+
+                <!-- form связывает кнопку с формой вне её разметки. -->
+                <button
+                        class="btn btn-primary"
+                        type="submit"
+                        form="quick-order-form"
+                >
+                    Проверить заявку
                 </button>
             </div>
+
         </div>
     </div>
 </div>
 
-<script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+<!-- Bootstrap управляет меню, выпадающим списком и модальным окном. -->
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    // Получаем элементы фильтра и карточки товаров.
+    const filterSection = document.getElementById("catalog-filter");
+    const categoryFilter = document.getElementById("category-filter");
+    const catalogCount = document.getElementById("catalog-count");
+
+    const productCards = document.querySelectorAll(
+        "#catalog-grid > [data-category]"
+    );
+
+    // Показывает карточки выбранной категории и обновляет счётчик.
+    function filterProducts() {
+        const selectedCategory = categoryFilter.value;
+        let visibleCount = 0;
+
+        for (const card of productCards) {
+            const matches = selectedCategory === "all"
+                || card.dataset.category === selectedCategory;
+
+            card.hidden = !matches;
+
+            if (matches) {
+                visibleCount++;
+            }
+        }
+
+        catalogCount.textContent =
+            "Показано: " + visibleCount + " из " + productCards.length;
+    }
+
+    // Получаем элементы модального окна и формы.
+    const orderModal = document.getElementById("orderModal");
+    const orderForm = document.getElementById("quick-order-form");
+    const productSelect = document.getElementById("modal-product");
+    const nameInput = document.getElementById("modal-name");
+    const orderResult = document.getElementById("order-result");
+
+    // Убирает результат предыдущей проверки.
+    function hideOrderResult() {
+        orderResult.hidden = true;
+        orderResult.textContent = "";
+    }
+
+    // Очищает форму и выбирает котика из нажатой кнопки.
+    function prepareOrderModal(event) {
+        orderForm.reset();
+        hideOrderResult();
+
+        const button = event.relatedTarget;
+
+        if (button && button.dataset.product) {
+            productSelect.value = button.dataset.product;
+        }
+    }
+
+    // Проверяет поля без отправки данных на сервер.
+    function validateOrder(event) {
+        event.preventDefault();
+
+        nameInput.value = nameInput.value.trim();
+
+        if (!orderForm.reportValidity()) {
+            return;
+        }
+
+        orderResult.textContent =
+            "Форма заполнена корректно. Это учебная проверка: "
+            + "заявка не отправлена, данные не сохранены.";
+
+        orderResult.hidden = false;
+    }
+
+    // Связываем действия пользователя с функциями.
+    categoryFilter.addEventListener("change", filterProducts);
+
+    orderModal.addEventListener("show.bs.modal", prepareOrderModal);
+
+    orderForm.addEventListener("input", hideOrderResult);
+    orderForm.addEventListener("change", hideOrderResult);
+    orderForm.addEventListener("submit", validateOrder);
+
+    // Применяем фильтр и показываем его после запуска скрипта.
+    filterProducts();
+    filterSection.hidden = false;
 </script>
+
 </body>
 </html>
