@@ -1,7 +1,399 @@
-body {
-    min-height: 100vh;
+/* Основные цвета магазина и переменные тёмной темы Bootstrap. */
+:root,
+[data-bs-theme="dark"] {
+    color-scheme: dark;
+
+    --shop-bg: #1f1e20;
+    --shop-surface: #302c2f;
+    --shop-burgundy: #592735;
+    --shop-pink: #d9adb8;
+    --shop-pink-hover: #ebc4ce;
+    --shop-text: #f3ecee;
+    --shop-muted: #c2b5bb;
+    --shop-border: #56454e;
+
+    --bs-primary: #d9adb8;
+    --bs-primary-rgb: 217, 173, 184;
+
+    --bs-body-color: #f3ecee;
+    --bs-body-color-rgb: 243, 236, 238;
+    --bs-body-bg: #1f1e20;
+    --bs-body-bg-rgb: 31, 30, 32;
+
+    --bs-secondary-color: #c2b5bb;
+    --bs-secondary-color-rgb: 194, 181, 187;
+    --bs-secondary-bg: #302c2f;
+    --bs-secondary-bg-rgb: 48, 44, 47;
+
+    --bs-tertiary-color: #b8a9b0;
+    --bs-tertiary-bg: #393238;
+    --bs-tertiary-bg-rgb: 57, 50, 56;
+
+    --bs-emphasis-color: #fff;
+    --bs-emphasis-color-rgb: 255, 255, 255;
+
+    --bs-border-color: #56454e;
+    --bs-border-color-translucent: rgba(217, 173, 184, 0.2);
+
+    --bs-link-color: #d9adb8;
+    --bs-link-color-rgb: 217, 173, 184;
+    --bs-link-hover-color: #ebc4ce;
+    --bs-link-hover-color-rgb: 235, 196, 206;
+
+    --bs-light-rgb: 248, 249, 250;
+    --bs-dark-rgb: 25, 23, 25;
 }
 
+/* Flex-колонка позволяет разместить подвал внизу короткой страницы. */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+
+/* Шапка сохраняет свою высоту при распределении места. */
+body > header {
+    flex-shrink: 0;
+}
+
+/* Основной блок занимает свободное место и растёт вместе с содержимым. */
+body > main {
+    flex: 1 0 auto;
+    min-width: 0;
+}
+
+/* Подвал остаётся в потоке страницы и не перекрывает содержимое. */
+body > .site-footer {
+    position: static;
+    flex-shrink: 0;
+    width: 100%;
+    margin-top: auto !important;
+}
+
+/* Расстояние между текстом ссылки и подчёркиванием. */
+a {
+    text-underline-offset: 4px;
+}
+
+/* Сохраняет прокрутку и масштабирование при работе с сенсорным экраном. */
+a,
+button,
+input,
+select,
+textarea {
+    touch-action: manipulation;
+}
+
+/* Видимая рамка при переходе по ссылкам и кнопкам с клавиатуры. */
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--shop-pink);
+    outline-offset: 4px;
+}
+
+/* Общее скругление кнопок Bootstrap. */
+.btn {
+    border-radius: 12px;
+}
+
+/* Основная розовая кнопка и её состояния. */
+.btn-primary {
+    --bs-btn-color: #241b20;
+    --bs-btn-bg: #d9adb8;
+    --bs-btn-border-color: #d9adb8;
+
+    --bs-btn-hover-color: #241b20;
+    --bs-btn-hover-bg: #ebc4ce;
+    --bs-btn-hover-border-color: #ebc4ce;
+
+    --bs-btn-active-color: #241b20;
+    --bs-btn-active-bg: #c997a4;
+    --bs-btn-active-border-color: #c997a4;
+
+    --bs-btn-disabled-color: #241b20;
+    --bs-btn-disabled-bg: #d9adb8;
+    --bs-btn-disabled-border-color: #d9adb8;
+
+    --bs-btn-focus-shadow-rgb: 217, 173, 184;
+}
+
+/* Контурная розовая кнопка, включая неактивное состояние. */
+.btn-outline-primary {
+    --bs-btn-color: #d9adb8;
+    --bs-btn-border-color: #d9adb8;
+
+    --bs-btn-hover-color: #241b20;
+    --bs-btn-hover-bg: #d9adb8;
+    --bs-btn-hover-border-color: #d9adb8;
+
+    --bs-btn-active-color: #241b20;
+    --bs-btn-active-bg: #c997a4;
+    --bs-btn-active-border-color: #c997a4;
+
+    --bs-btn-disabled-color: #d9adb8;
+    --bs-btn-disabled-border-color: #d9adb8;
+
+    --bs-btn-focus-shadow-rgb: 217, 173, 184;
+}
+
+/* Второстепенные действия: возврат, очистка и закрытие. */
+.btn-outline-secondary {
+    --bs-btn-color: #d6c8cf;
+    --bs-btn-border-color: #8e7b85;
+
+    --bs-btn-hover-color: #f3ecee;
+    --bs-btn-hover-bg: #493c44;
+    --bs-btn-hover-border-color: #a38b97;
+
+    --bs-btn-active-color: #f3ecee;
+    --bs-btn-active-bg: #592735;
+    --bs-btn-active-border-color: #a38b97;
+}
+
+/* Фон и нижняя граница шапки. */
+.site-header {
+    background-color: var(--shop-bg);
+    border-bottom: 1px solid var(--shop-border);
+}
+
+/* Оформление названия Plush Cats. */
+.site-brand {
+    color: var(--shop-pink);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+}
+
+.site-brand:hover,
+.site-brand:focus {
+    color: var(--shop-pink-hover);
+}
+
+/* Название располагается справа от кнопки мобильного меню. */
+.site-header .navbar-brand {
+    order: 2;
+    margin-right: 0;
+    margin-left: auto;
+    white-space: nowrap;
+}
+
+/* На узком экране кнопка меню располагается слева. */
+.site-header .navbar-toggler {
+    order: 1;
+}
+
+/* Раскрытое мобильное меню выводится после верхней строки. */
+.site-header .navbar-collapse {
+    order: 3;
+}
+
+/* Цвет обычных ссылок навигации. */
+.navbar .nav-link {
+    color: var(--shop-muted);
+}
+
+/* Подсветка ссылки при наведении, фокусе и выборе страницы. */
+.navbar .nav-link:hover,
+.navbar .nav-link:focus,
+.navbar .nav-link.active {
+    color: var(--shop-pink);
+}
+
+.navbar .nav-link.active {
+    font-weight: 700;
+}
+
+/* Цвета выпадающего меню Bootstrap. */
+.dropdown-menu {
+    --bs-dropdown-bg: #302c2f;
+    --bs-dropdown-border-color: #56454e;
+    --bs-dropdown-link-color: #f3ecee;
+    --bs-dropdown-link-hover-color: #f3ecee;
+    --bs-dropdown-link-hover-bg: #49333d;
+    --bs-dropdown-link-active-color: #fff;
+    --bs-dropdown-link-active-bg: #592735;
+
+    border-radius: 14px;
+}
+
+/* Текущий тёмный hero-блок главной страницы. */
+.hero {
+    padding: clamp(24px, 4vw, 56px);
+    background-color: var(--shop-surface);
+    border: 1px solid var(--shop-border);
+    border-radius: 24px;
+}
+
+/* Размер заголовка плавно меняется вместе с шириной окна. */
+.hero-title {
+    max-width: 650px;
+    color: var(--shop-text);
+    font-size: clamp(2rem, 3.8vw, 3.5rem);
+    line-height: 1.12;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    text-wrap: balance;
+}
+
+/* Розовая часть заголовка начинается с новой строки. */
+.hero-title span {
+    display: block;
+}
+
+/* Ограничение ширины текста повышает удобство чтения. */
+.hero-description {
+    max-width: 560px;
+    color: var(--shop-muted);
+    line-height: 1.65;
+}
+
+/* Квадратное фото главного блока без дополнительной рамки. */
+.hero-image {
+    display: block;
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    margin-left: auto;
+    padding: 0;
+    object-fit: cover;
+    background-color: transparent;
+    border-radius: 18px;
+}
+
+/* Единый стиль заголовков разделов. */
+.section-heading {
+    color: var(--shop-pink);
+    font-weight: 750;
+    letter-spacing: -0.03em;
+}
+
+/* Блоки преимуществ, подсказок и формы заявки. */
+.feature-box {
+    height: 100%;
+    background-color: var(--shop-surface);
+    border: 1px solid var(--shop-border);
+    border-radius: 18px;
+}
+
+.feature-box h3 {
+    color: var(--shop-pink);
+}
+
+/* Оформление карточек поверх компонента Bootstrap card. */
+.product-card {
+    overflow: hidden;
+    background-color: var(--shop-surface);
+    border-color: var(--shop-border);
+    border-radius: 18px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Подсветка карточки, если фокус находится на её кнопке или ссылке. */
+.product-card:focus-within {
+    box-shadow: 0 0 0 3px rgba(217, 173, 184, 0.35);
+}
+
+.product-card .card-title {
+    color: var(--shop-text);
+}
+
+/* contain показывает фотографию товара целиком без обрезания. */
+.product-image {
+    display: block;
+    width: 100%;
+    height: 260px;
+    padding: 20px;
+    object-fit: contain;
+    background-color: #f3e9e6;
+}
+
+/* Выделение стоимости товара. */
+.product-price {
+    color: var(--shop-pink);
+    font-weight: 800;
+}
+
+/* Большое изображение на странице Тедди. */
+.product-detail-image {
+    display: block;
+    width: 100%;
+    height: clamp(280px, 40vw, 460px);
+    padding: 24px;
+    object-fit: contain;
+    background-color: #f3e9e6;
+    border-radius: 20px;
+}
+
+/* Скругления текстовых полей и списков Bootstrap. */
+.form-control,
+.form-select {
+    border-radius: 10px;
+}
+
+/* Подсветка активного поля формы. */
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--shop-pink);
+    box-shadow: 0 0 0 0.25rem rgba(217, 173, 184, 0.18);
+}
+
+/* Цвет выбранного чекбокса. */
+.form-check-input:checked {
+    background-color: var(--shop-burgundy);
+    border-color: var(--shop-pink);
+}
+
+/* Видимый фокус чекбокса при работе с клавиатуры. */
+.form-check-input:focus {
+    border-color: var(--shop-pink);
+    box-shadow: 0 0 0 0.25rem rgba(217, 173, 184, 0.18);
+}
+
+/* Сообщения alert в цветах магазина вместо стандартного синего. */
+.alert-info {
+    --bs-alert-color: #f2dce4;
+    --bs-alert-bg: #3b2933;
+    --bs-alert-border-color: #805364;
+    --bs-alert-link-color: #fff0f5;
+}
+
+/* Оформление раскрывающихся вопросов Bootstrap accordion. */
+.accordion {
+    --bs-accordion-color: #f3ecee;
+    --bs-accordion-bg: #302c2f;
+    --bs-accordion-border-color: #56454e;
+    --bs-accordion-btn-color: #f3ecee;
+    --bs-accordion-btn-bg: #302c2f;
+    --bs-accordion-active-color: #f3ecee;
+    --bs-accordion-active-bg: #592735;
+    --bs-accordion-btn-focus-box-shadow:
+            0 0 0 0.25rem rgba(217, 173, 184, 0.18);
+}
+
+/* Цвета и скругление модального окна заявки. */
+.modal-content {
+    background-color: var(--shop-surface);
+    border-color: var(--shop-border);
+    border-radius: 20px;
+}
+
+/* Внешний вид подвала. Его положение задано в начале файла. */
+.site-footer {
+    color: var(--shop-text);
+    background-color: #191719;
+    border-top: 1px solid var(--shop-border);
+}
+
+.site-footer a {
+    color: var(--shop-pink);
+}
+
+.site-footer a:hover {
+    color: var(--shop-pink-hover);
+}
+
+/* Высота временных блоков изображений из практических работ. */
 .placeholder-box {
     min-height: 240px;
 }
@@ -10,7 +402,53 @@ body {
     min-height: 320px;
 }
 
+/* Стандартное изображение card-img-top, если оно используется. */
 .card-img-top {
     height: 180px;
     object-fit: cover;
+}
+
+/* От lg меню располагается слева, название остаётся справа. */
+@media (min-width: 992px) {
+    .site-header .navbar-collapse {
+        order: 1;
+        flex-grow: 0;
+    }
+}
+
+/* Под lg фотография hero-блока центрируется. */
+@media (max-width: 991.98px) {
+    .hero-image {
+        margin-right: auto;
+    }
+}
+
+/* На узких экранах кнопки hero занимают всю ширину. */
+@media (max-width: 575.98px) {
+    .hero {
+        border-radius: 16px;
+    }
+
+    .hero .btn {
+        width: 100%;
+    }
+
+    .product-image {
+        height: 220px;
+    }
+}
+
+/* Анимация карточек включена для устройств с наведением. */
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    .product-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+    }
+}
+
+/* Отключение анимации по системной настройке пользователя. */
+@media (prefers-reduced-motion: reduce) {
+    .product-card {
+        transition: none;
+    }
 }
